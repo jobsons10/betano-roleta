@@ -1,0 +1,2765 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="apple-mobile-web-app-capacity" content="yes">
+   <title>Wheel of Fortune | BETANO</title>
+    <style>
+        @font-face {
+            font-family: KelsonSans-BoldRU;
+            src: url('./fonts/KelsonSans-Bold.eot');
+            src: url('./fonts/KelsonSans-Bold.eot?#iefix') format('embedded-opentype'),
+            url('./fonts/KelsonSans-Bold.woff2') format('woff2'),
+            url('./fonts/KelsonSans-Bold.woff') format('woff'),
+            url('./fonts/KelsonSans-Bold.ttf') format('truetype'),
+            url('./fonts/KelsonSans-Bold.svg#KelsonSans-Bold') format('svg');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Anton-Regular;
+            src: url('./fonts/Anton-Regular.eot');
+            src: url('./fonts/Anton-Regular.eot?#iefix') format('embedded-opentype'),
+            url('./fonts/Anton-Regular.woff2') format('woff2'),
+            url('./fonts/Anton-Regular.woff') format('woff'),
+            url('./fonts/Anton-Regular.ttf') format('truetype'),
+            url('./fonts/Anton-Regular.svg#Anton-Regular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        html{
+            -webkit-text-size-adjust: none;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+            -webkit-font-smoothing: antialiased;
+        }
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .logo{
+            padding: 10px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        button {
+            appearance: none;
+            padding: 0;
+            border: none;
+            font: inherit;
+            color: inherit;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: fixed;
+        }
+        h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        #app {
+            -moz-osx-font-smoothing: grayscale;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            background-image: url(img/bg.webp);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+        }
+        .roulette__container {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .spin-left {
+            text-transform: uppercase;
+            margin-bottom: 0.5em;
+            color: #ffff18;
+            font-family: KelsonSans-BoldRU, Arial, sans-serif;
+            text-align: center;
+            position: absolute;
+        }
+        #bonusCoins {
+            display: none;
+        }
+        .roulette {
+            overflow: hidden;
+            position: relative;
+            border-radius: 50%;
+            -webkit-box-shadow: 5px -3px 28px 36px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 5px -3px 28px 36px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px -3px 28px 36px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+        .centred {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            width: fit-content;
+            height: fit-content;
+        }
+        .roulette-pie_cycled {
+            animation: miniSpin 3s infinite linear;
+        }
+        .roulette-pie_spinning {
+            animation: finalSpin 4.5s ease-in-out 1 forwards;
+        }
+        @keyframes finalSpin {
+            0% {
+                transform: rotate(0);
+            }
+            70% {
+                transform: rotate(724deg);
+            }
+            80% {
+                transform: rotate(714deg);
+            }
+            100% {
+                transform: rotate(720deg);
+            }
+        }
+        @keyframes miniSpin {
+            0% {
+                transform: rotate(0);
+            }
+            50% {
+                transform: rotate(8deg);
+            }
+            100% {
+                transform: rotate(0);
+            }
+        }
+        h4 {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .roulette-pie {
+            border-radius: 50%;
+            border: 0.1px solid rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .roulette-pie .roulette-pie__sector {
+            height: 50%;
+            position: absolute;
+            clip-path: polygon(100% 0, 50% 100%, 0 0);
+            transform: translateX(-50%);
+            transform-origin: bottom;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: sans-serif;
+            color: #fff;
+        }
+        .roulette-pie .roulette-pie__first-piece {
+            left: 50%;
+        }
+        .roulette-pie .roulette-pie__second-piece {
+            transform: rotate(45deg);
+        }
+        .roulette-pie .roulette-pie__third-piece {
+            transform: rotate(90deg);
+        }
+        .roulette-pie .roulette-pie__fourth-piece {
+            transform: rotate(135deg);
+        }
+        .roulette-pie .roulette-pie__fifth-piece {
+            transform: rotate(180deg);
+        }
+        .roulette-pie .roulette-pie__sixth-piece {
+            transform: rotate(225deg);
+        }
+        .roulette-pie .roulette-pie__seventh-piece {
+            transform: rotate(270deg);
+        }
+        .roulette-pie .roulette-pie__eighth-piece {
+            transform: rotate(315deg);
+        }
+        .roulette-pie__sector_prize__text {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 700;
+            font-family: Anton-Regular;
+        }
+        .roulette-pie__sector_no-prize__text {
+            color: #00c9d9;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 700;
+            font-family: Anton-Regular;
+        }
+        .roulette-pie__sector_prize__text_additional {
+            text-transform: uppercase;
+            text-align: center;
+            font-family: Anton-Regular;
+        }
+        .roulette__holder {
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            border-radius: 50%;
+            align-self: center;
+            overflow: hidden;
+        }
+        .roulette-pie__transparent-circle {
+            background-color: rgba(0, 51, 112, 0.5);
+            border-radius: 50%;
+            opacity: 0.15;
+            -webkit-box-shadow: 0 1px 10px 35px rgba(0, 0, 0, 0.7) inset;
+            -moz-box-shadow: 0 1px 10px 35px rgba(0, 0, 0, 0.7) inset;
+            box-shadow: 0 1px 10px 35px rgba(0, 0, 0, 0.7) inset;
+            border: 3px solid rgba(0, 194, 144, 0.5);
+        }
+        @keyframes blinkButton {
+            0% {
+                box-shadow: none;
+            }
+            50% {
+                -webkit-box-shadow: 0 1px 11px 9px rgba(255, 180, 0, 0.51);
+                -moz-box-shadow: 0 1px 11px 9px rgba(255, 180, 0, 0.51);
+                box-shadow: 0 1px 11px 9px rgba(255, 180, 0, 0.51);
+            }
+            100% {
+                box-shadow: none;
+            }
+        }
+        .blink-button {
+            animation: blinkButton infinite 1.2s;
+        }
+        @keyframes blinkSelector {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        .blink-selector {
+            animation: blinkSelector infinite 1.2s;
+        }
+        .roulette__btn {
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, rgba(255, 198, 55, 1) 18%, rgba(236, 54, 13, 1) 50%, rgba(165, 28, 5, 1) 100%);
+            z-index: 999999999;
+            font-family: KelsonSans-BoldRU, Arial, sans-serif;
+            cursor: pointer;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            outline: 0;
+            font-size: inherit;
+            border-radius: 50%;
+            -webkit-box-shadow: 0 1px 12px 1px rgba(255, 241, 190, 0.79) inset;
+            -moz-box-shadow: 0 1px 12px 1px rgba(255, 241, 190, 0.79) inset;
+            box-shadow: 0 1px 12px 1px rgba(255, 241, 190, 0.79) inset;
+        }
+        .roulette__btn__text {
+            font-weight: 700;
+            color: #ffe411;
+            position: relative;
+            z-index: 4;
+            font-family: KelsonSans-BoldRU, Arial, sans-serif;
+        }
+        .roulette-pie__win-selector {
+            background-size: 100% 100%;
+            position: absolute;
+            z-index: 99996;
+        }
+        .roulette-pie__win-selector__blink {
+            position: absolute;
+            background-size: 100% 100%;
+            z-index: 99997;
+        }
+        .roulette-pie__header-top {
+            font-family: "Anton-Regular";
+            text-align: center;
+            color: rgba(244, 226, 159, 1);
+        }
+        .roulette-pie__header-bottom__shadow {
+            filter: drop-shadow(8px -6mm 4mm #000);
+        }
+        .roulette-pie__header-bottom {
+            font-family: Anton-Regular;
+            text-align: center;
+            color: rgba(239, 143, 29, 1);
+        }
+        .footer {
+            position: absolute;
+            background-image: url(img/pay-desk.webp);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 9999999;
+        }
+        .logo-and-roulette {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            vertical-align: middle;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .logo_brazil{
+            background-image: url("./img/worldcup/brazil__team__logo.svg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height: 115px;
+            width: 112px;
+            margin-top: 31px;
+        }
+        .logo_worldcup{
+            background-image: url("./img/worldcup/worldcup__quatar__logo.svg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height: 115px;
+            width: 102px;
+            margin-top: 31px;
+        }
+        .logos{
+            display: flex;
+            flex-direction: row;
+            gap: 31px;
+        }
+        .worldcup__background{
+            background-image: url("./img/worldcup/girls.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            z-index: 8;
+            display: flex;
+            align-self: center;
+        }
+        @media screen and (min-width: 1441px){
+            @media screen and (min-height: 1225px){
+                .logo_brazil{
+                    height: 172px;
+                    width: 168px;
+                    margin-top: 42px;
+                }
+                .logo_worldcup{
+                    height: 172px;
+                    width: 162px;
+                    margin-top: 42px;
+                }
+                .logo{
+                    width: 300px !important;
+                }
+                .footer {
+                    height: 1.61vw;
+                    width: 38.63%;
+                    z-index: 9999999;
+                    margin-bottom: 1vh;
+                }
+            }
+            .footer {
+                height: 1.61vw;
+                width: 38.63%;
+                z-index: 9999999;
+                margin-bottom: 2vh;
+            }
+            .worldcup__background{
+                background-image: url("./img/worldcup/girls_large.png");
+                width: 1898px;
+                height: 998px;
+                /*активировать для изображения девушек*/
+                /*background-image: url("./img/worldcup/girls_large.png");
+                width: 80vw;
+                height: 53vw;*/
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 5%;
+                top: 5%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 20px;
+            }
+            #spin-left__number {
+                font-size: 30px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: column;
+                margin-top: 60px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                background-size: 100% 100%;
+            }
+            .roulette-pie__header-top__container {
+                top: -179px;
+            }
+            .roulette-pie__headers {
+                top: 498px;
+            }
+            .roulette-pie__header-top {
+                font-size: 66.39px;
+                letter-spacing: 1.33px;
+                margin-bottom: -7.53px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 66.39px;
+                letter-spacing: 4.64px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 159.34px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 185.9px;
+            }
+            .roulette-pie__mask {
+                margin-top: 20px;
+                width: 604.1px;
+                height: 588.1px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 387px;
+                width: 290px;
+                top: -120px;
+            }
+            .roulette-pie__win-selector {
+                height: 387px;
+                width: 290px;
+                top: -120px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 280px;
+                height: 387px;
+                width: 290px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette__holder_2.webp);
+                height: 810px;
+                width: 810px;
+            }
+            .roulette-pie {
+                width: 604.1px;
+                height: 604.1px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 241px;
+                left: 180.59px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 95px 235.5px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 95px 235.5px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 318.66px;
+                height: 318.66px;
+            }
+            .roulette__btn {
+                height: 205.81px;
+                width: 205.81px;
+            }
+            .roulette__btn__text {
+                font-size: 35px;
+            }
+        }
+        @media screen and (max-width: 508px) {
+            #app {
+                background-image: url(img/bg-main-mb.webp);
+
+            }
+        }
+        @media screen and (min-width: 721px) and (max-width: 1440px){
+            .roulette__container{
+                height: 75%;
+            }
+            .worldcup__background{
+                width: 83.68vw;
+                height: 58.47vw;
+                margin-left: 4.25vw;
+                max-width: 1205px;
+                max-height: 842px;
+            }
+            @media screen and (max-width: 1439px){
+                .worldcup__background{
+                    width: 1205px;
+                    height: 842px;
+                }
+            }
+            @media screen and (max-width: 1023px){
+                .worldcup__background{
+                    width: 1024px;
+                    height: 751px;
+                }
+            }
+            .footer {
+                height: 2.46vw;
+                width: 60%;
+                margin-bottom: 2vh;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 5%;
+                top: 5%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 20px;
+            }
+            #spin-left__number {
+                font-size: 30px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: column;
+                margin-top: 60px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                background-size: 100% 100%;
+            }
+            .roulette-pie__header-top__container {
+                top: -135px;
+            }
+            .roulette-pie__headers {
+                top: 360px;
+            }
+            .roulette-pie__header-top {
+                font-size: 50px;
+                letter-spacing: 1px;
+                margin-bottom: -10px;
+                font-family: Anton-Regular;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 50px;
+                letter-spacing: 3.5px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 120px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 140px;
+            }
+            .roulette-pie__mask {
+                margin-top: 17px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 292px;
+                width: 219px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 292px;
+                width: 219px;
+                top: -12px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 280px;
+                height: 292px;
+                width: 219px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette__holder_2.webp);
+                height: 610px;
+                width: 610px;
+            }
+            .roulette-pie {
+                width: 455px;
+                height: 455px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 182px;
+                left: 136px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 95px 235.5px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 95px 235.5px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 240px;
+                height: 240px;
+            }
+            .roulette__btn {
+                height: 155px;
+                width: 155px;
+            }
+            .roulette__btn__text {
+                font-size: 30px;
+            }
+        }
+        @media screen and (min-width: 2560px){
+            .worldcup__background{
+                background-image: url("./img/worldcup/girls_large.png");
+                width: 79.69vw !important;
+                height: 50.78vw !important;
+            }
+            .footer {
+                height: 1.61vw;
+                width: 38.63%;
+                z-index: 9999999;
+                margin-bottom: 3vh;
+            }
+            @media screen and (max-height: 1151px) and (min-height: 1055px){
+                .footer {
+                    display: none;
+                }
+            }
+            @media screen and (max-height: 1330px){
+                .footer {
+                    height: 1.61vw;
+                    width: 38.63%;
+                    z-index: 9999999;
+                    margin-bottom: 2vh;
+                }
+            }
+        }
+        @media screen and (min-width: 721px) and (max-width: 821px){
+            .worldcup__background{
+                width: 841px;
+                height: 581.131px;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 310px;
+            }
+            .roulette-pie__header-top {
+                font-size: 45px;
+                letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 45px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 80px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 90px;
+            }
+            .roulette-pie__mask {
+                margin-top: 14px;
+                width: 380px;
+                height: 370px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 205px;
+                height: 270px;
+                width: 162.5px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 270px;
+                width: 162.5px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 270px;
+                width: 162.5px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette__holder_2.webp);
+                height: 500px;
+                width: 500px;
+            }
+            .roulette-pie {
+                width: 380px;
+                height: 380px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 145px;
+                left: 117px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 72.5px 185.5px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 72.5px 185.5px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 180px;
+                height: 180px;
+            }
+            .roulette__btn {
+                height: 125px;
+                width: 125px;
+            }
+            .roulette__btn__text {
+                font-size: 30px;
+            }
+            .roulette__container {
+                height: 70%;
+            }
+            .footer {
+                height: 2.46vw;
+                width: 60%;
+                z-index: 9999999;
+                margin-bottom: 3vh;
+            }
+            .bonus {
+                margin-top: -40px;
+                width: fit-content;
+                position: absolute;
+                left: 4% !important;
+                top: 4% !important;
+                z-index: 11 !important;
+                min-width: 180px;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 20px;
+            }
+            #spin-left__number {
+                font-size: 30px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: row;
+                margin-top: 60px;
+                justify-content: space-between;
+                width: 92vw;
+                position: relative;
+                z-index: 11 !important;
+            }
+        }
+        @media screen and (width: 768px) and (height: 1024px) and (orientation: portrait) {
+            #app {
+                margin-left: 0px;
+            }
+        }
+        @media screen and (min-width: 577px) and (max-width: 720px) {
+            .worldcup__background{
+                width: 720px;
+                height: 497.52px;
+            }
+            .logo_brazil{
+                height: 57.5px;
+                width: 56px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+            .logo_worldcup{
+                height: 57.5px;
+                width: 51px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 3%;
+                top: 1%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 20px;
+            }
+            #spin-left__number {
+                font-size: 25px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: column;
+                margin-top: 50px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                width: 150px !important;
+                background-size: 100% 100%;
+                margin-top: 10px;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 230px;
+            }
+            .roulette-pie__header-top {
+                font-size: 40px;
+                letter-spacing: 1px;
+                margin-bottom: 0;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 75px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 160px;
+                height: 170px;
+                width: 125px;
+            }
+            .logo-and-roulette{
+                align-self: center;
+                margin: 0;
+            }
+            .roulette__container{
+                margin: auto;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_65.webp);
+                height: 360px;
+                width: 360px;
+                position: relative;
+                overflow: hidden;
+            }
+            .roulette-pie {
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 105px;
+                left: 82px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 140px;
+                height: 140px;
+            }
+            .roulette__btn {
+                height: 90px;
+                width: 90px;
+            }
+            .roulette__btn__text {
+                font-size: 20px;
+            }
+        }
+        @media screen and (min-height: 630px) and (max-height: 1024px) and (min-width: 1441px){
+            footer {
+                height: 1.614vw !important;
+                width: 38.63% !important;
+            }
+            .worldcup__background{
+                width: 980px !important;
+                height: 677.18px !important;
+                margin-bottom: 0px;
+            }
+            .logo_brazil{
+                height: 67.5px;
+                width: 66px;
+                margin-top: 21px;
+            }
+            .logo_worldcup{
+                height: 67.5px;
+                width: 61px;
+                margin-top: 21px;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 3% !important;
+                top: 7% !important;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 20px;
+            }
+            #spin-left__number {
+                font-size: 25px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: column;
+                margin-top: 50px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                width: 150px !important;
+                background-size: 100% 100%;
+            }
+            .roulette-pie__header-top__container {
+                top: -105px;
+            }
+            .roulette-pie__headers {
+                top: 313px;
+            }
+            .roulette-pie__header-top {
+                font-size: 54.44px;
+                letter-spacing: 1.3px;
+                margin-bottom: 0;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 54.44px;
+                letter-spacing: 2.6px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 81.66px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 138.83px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 367.5px;
+                height: 367.5px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 217.77px;
+                height: 231.38px;
+                width: 170.13px;
+            }
+            .logo-and-roulette{
+                align-self: center;
+                margin: 0;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 231.38px;
+                width: 170.13px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 231.38px;
+                width: 170.13px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette__holder_2.webp);
+                height: 490px;
+                width: 490px;
+                position: relative;
+                overflow: hidden;
+            }
+            .roulette-pie {
+                width: 367.5px;
+                height: 367.5px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 142.91px;
+                left: 111.61px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 190.5px;
+                height: 190.5px;
+            }
+            .roulette__btn {
+                height: 122.5px;
+                width: 122.5px;
+            }
+            .roulette__btn__text {
+                font-size: 27.2px;
+            }
+        }
+        @media screen and (min-height: 480px) and (orientation: landscape) and (max-height: 750px) {
+            .worldcup__background{
+                width: 720px;
+                height: 497.52px;
+                margin-bottom: 0px;
+            }
+            .logo_brazil{
+                height: 57.5px;
+                width: 56px;
+                margin-top: 51px;
+            }
+            .logo_worldcup{
+                height: 57.5px;
+                width: 51px;
+                margin-top: 51px;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 3% !important;
+                top: 7% !important;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 20px;
+            }
+            #spin-left__number {
+                font-size: 25px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: column;
+                margin-top: 50px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                width: 150px !important;
+                background-size: 100% 100%;
+                margin-top: 10px;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 230px;
+            }
+            .roulette-pie__header-top {
+                font-size: 40px;
+                letter-spacing: 1px;
+                margin-bottom: 0;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 75px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 160px;
+                height: 170px;
+                width: 125px;
+            }
+            .logo-and-roulette{
+                align-self: center;
+                margin: 0;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_65.webp);
+                height: 360px;
+                width: 360px;
+                position: relative;
+                overflow: hidden;
+            }
+            .roulette-pie {
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 105px;
+                left: 82px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 140px;
+                height: 140px;
+            }
+            .roulette__btn {
+                height: 90px;
+                width: 90px;
+            }
+            .roulette__btn__text {
+                font-size: 20px;
+            }
+        }
+        @media screen and (width: 717px) and (height: 512px){
+            .logo_brazil{
+                margin-top: 20px !important;
+                margin-bottom: 50px !important;
+            }
+            .logo_worldcup{
+                margin-top: 20px !important;
+                margin-bottom: 50px !important;
+            }
+            .worldcup__background {
+                width: 720px !important;
+                height: 497.52px !important;
+                margin-bottom: 0px !important;
+            }
+            .roulette{
+                margin-bottom: 200px !important;
+            }
+            .footer {
+                height: 1.61vw;
+                width: 38.63%;
+                margin-bottom: 3vh;
+            }
+        }
+        @media screen and (min-height: 321px) and (orientation: landscape) and (max-height: 480px) {
+            .worldcup__background{
+                width: 720px;
+                height: 497.52px;
+                margin-bottom: 0;
+            }
+            .logo_brazil{
+                display: none;
+            }
+            .logo_worldcup{
+                display: none;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 3%;
+                top: 1%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 12px;
+            }
+            #spin-left__number {
+                font-size: 15px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: column;
+                margin-top: 30px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                display: none;
+            }
+            .footer {
+                display: none;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 230px;
+            }
+            .roulette-pie__header-top {
+                font-size: 40px;
+                letter-spacing: 1px;
+                margin-bottom: 0;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 39px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 75px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 160px;
+                height: 170px;
+                width: 125px;
+            }
+            .logo-and-roulette{
+                align-self: center;
+                margin: 0;
+            }
+            .roulette__container{
+                margin: auto;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_65.webp);
+                height: 360px;
+                width: 360px;
+                position: relative;
+                overflow: hidden;
+            }
+            .roulette-pie {
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 105px;
+                left: 82px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 140px;
+                height: 140px;
+            }
+            .roulette__btn {
+                height: 90px;
+                width: 90px;
+            }
+            .roulette__btn__text {
+                font-size: 20px;
+            }
+        }
+        @media screen and (max-width: 576px) and (min-width: 360px) and (orientation: landscape) {
+            .logo-and-roulette {
+                margin-top: 0 !important;
+            }
+        }
+        @media screen and (max-width: 576px) and (min-width: 360px) {
+            .worldcup__background{
+                width: 500px;
+                height: 345px;
+                margin-bottom: 300px;
+                background-image: url("img/worldcup/girls.png");
+            }
+            @media screen and (min-height: 600px) and (max-height: 641px){
+                .worldcup__background{
+                    top: 4.85vh;
+                    margin-bottom: 0;
+                }
+            }
+            .logo_brazil{
+                height: 67.5px;
+                width: 66px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+            .logo_worldcup{
+                height: 67.5px;
+                width: 61px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+
+            @media screen and (max-height: 667px){
+                .logo_brazil{
+                    height: 57.5px;
+                    width: 56px;
+                    margin-top: 21px;
+                }
+                .logo_worldcup{
+                    height: 57.5px;
+                    width: 51px;
+                    margin-top: 21px;
+                    margin-bottom: 30px;
+                }
+                .logo-and-roulette {
+                    margin-top: 1% !important;
+                }
+                .roulette__container{
+                    margin-top: 0px !important;
+                }
+                .footer {
+                    margin-bottom: 6vh !important;
+                }
+                @media screen and (orientation: landscape){
+                    .roulette__container{
+                        margin-top: 0px !important;
+                        height: 100% !important;
+                    }
+                    .worldcup__background{
+                        background-image: url("img/worldcup/girls.png");
+                    }
+                }
+            }
+            .logos{
+                gap: 0;
+            }
+            .logo-and-roulette {
+                margin-top: 8%;
+            }
+            .roulette__container {
+                height: 65%;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 3%;
+                top: 1%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 12px;
+            }
+            #spin-left__number {
+                font-size: 15px;
+            }
+            #bonusCoins {
+                display: flex;
+                flex-direction: row;
+                margin-top: 30px;
+                justify-content: space-between;
+                width: 93.5vw;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                width: 150px !important;
+                background-size: 100% 100%;
+            }
+            .footer {
+                margin-bottom: 10vh;
+                height: 13.28vw;
+                width: 56%;
+                background-image: url(img/pay-mob.webp) !important;
+                background-size: 100% 100%;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 230px;
+            }
+            .roulette-pie__header-top {
+                font-size: 40px;
+                letter-spacing: 1px;
+                margin-bottom: 0;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 75px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 160px;
+                height: 170px;
+                width: 125px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 170px;
+                width: 125px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_65.webp);
+                height: 360px;
+                width: 360px;
+                position: relative;
+                overflow: hidden;
+            }
+            .roulette-pie {
+                width: 270px;
+                height: 270px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 105px;
+                left: 82px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 53px 120px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 140px;
+                height: 140px;
+            }
+            .roulette__btn {
+                height: 90px;
+                width: 90px;
+            }
+            .roulette__btn__text {
+                font-size: 20px;
+            }
+        }
+        @media screen and (max-height: 320px) and (orientation: landscape) {
+            .logo_brazil{
+                display: none;
+            }
+            .logo_worldcup{
+               display: none;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 200px;
+            }
+            .roulette-pie__header-top {
+                font-size: 30px;
+                letter-spacing: 1px;
+                margin-bottom: -10px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 30px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 70px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 218px;
+                height: 208px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 125px;
+                height: 140px;
+                width: 105px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_75.webp);
+                display: flex;
+                height: 290px;
+                width: 290px;
+                position: relative;
+            }
+            .roulette-pie {
+                width: 215px;
+                height: 215px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 85px;
+                left: 64px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .roulette__btn {
+                height: 75px;
+                width: 75px;
+            }
+            .roulette__btn__text {
+                font-size: 18px;
+            }
+            .logo {
+                display: none;
+            }
+            .footer {
+                display: none;
+            }
+        }
+        @media screen and (min-width: 320px) and (max-width: 359px) {
+            .worldcup__background{
+                width: 450px;
+                height: 310px;
+                margin-bottom: 250px;
+                background-image: url("img/worldcup/girls.png");
+            }
+            .logo_brazil{
+                height: 47.5px;
+                width: 46px;
+                margin-top: 21px;
+                margin-bottom: 30px;
+            }
+            .logo_worldcup{
+                height: 47.5px;
+                width: 41px;
+                margin-top: 21px;
+                margin-bottom: 30px;
+            }
+            .logos{
+                gap: 0;
+            }
+            .roulette{
+                margin-bottom: 100px;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 8%;
+                top: 4%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 8px;
+            }
+            #spin-left__number {
+                font-size: 15px;
+            }
+            #bonusCoins {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: row;
+                width: 94vw;
+                justify-content: space-between;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .logo {
+                width: 90px !important;
+                background-size: 100% 100%;
+            }
+            .footer {
+                height: 13.28vw;
+                width: 56%;
+                background-image: url(img/pay-mob.webp) !important;
+                background-size: 100% 100%;
+                margin-bottom: 5vh;
+            }
+            @media screen and (min-width: 345px) and (max-width: 359px) {
+                #app {
+                    width: 380px !important;
+                    margin-left: -10px;
+                }
+                .bonus {
+                    width: fit-content;
+                    position: absolute;
+                    left: 5%;
+                    top: 4%;
+                    min-width: 180px;
+                    z-index: 11 !important;
+                }
+                .spin-left {
+                    margin-bottom: 0.5em;
+                    font-size: 8px;
+                }
+                #spin-left__number {
+                    font-size: 15px;
+                }
+                #bonusCoins {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    width: 94vw;
+                    justify-content: space-between;
+                    position: relative;
+                    z-index: 11 !important;
+                }
+            }
+            @media screen and (min-width: 336px) and (max-width: 345px) {
+                #app {
+                    width: 380px !important;
+                    margin-left: -20px;
+                }
+                .bonus {
+                    width: fit-content;
+                    position: absolute;
+                    left: 8%;
+                    top: 4%;
+                    min-width: 180px;
+                    z-index: 11 !important;
+                }
+                .spin-left {
+                    margin-bottom: 0.5em;
+                    font-size: 8px;
+                }
+                #spin-left__number {
+                    font-size: 15px;
+                }
+                #bonusCoins {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    width: 94vw;
+                    justify-content: space-between;
+                    position: relative;
+                    z-index: 11 !important;
+                }
+            }
+            @media screen and (min-width: 320px) and (max-width: 335px) {
+                #app {
+                    width: 380px !important;
+                    margin-left: -30px;
+                }
+                .bonus {
+                    width: fit-content;
+                    position: absolute;
+                    left: 10%;
+                    top: 4%;
+                    min-width: 180px;
+                    z-index: 11 !important;
+                }
+                .spin-left {
+                    margin-bottom: 0.5em;
+                    font-size: 8px;
+                }
+                #spin-left__number {
+                    font-size: 15px;
+                }
+                #bonusCoins {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    width: 94vw;
+                    justify-content: space-between;
+                    position: relative;
+                    z-index: 11 !important;
+                }
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 200px;
+            }
+            .roulette-pie__header-top {
+                font-size: 30px;
+                letter-spacing: 1px;
+                margin-bottom: -10px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 30px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 70px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 218px;
+                height: 208px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 125px;
+                height: 140px;
+                width: 105px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_75.webp);
+                display: flex;
+                height: 290px;
+                width: 290px;
+                position: relative;
+            }
+            .roulette-pie {
+                width: 215px;
+                height: 215px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 85px;
+                left: 64px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .roulette__btn {
+                height: 75px;
+                width: 75px;
+            }
+            .roulette__btn__text {
+                font-size: 18px;
+            }
+        }
+        @media screen and (width: 512px) and (height: 717px){
+            .logo_brazil{
+                margin-top: 20px !important;
+                margin-bottom: 50px !important;
+            }
+            .logo_worldcup{
+                margin-top: 20px !important;
+                margin-bottom: 50px !important;
+            }
+            .worldcup__background {
+                width: 720px !important;
+                height: 497.52px !important;
+            }
+            .footer {
+                height: 2.46vw;
+                width: 60%;
+                margin-bottom: 10vh;
+                background-image: url(img/pay-desk.webp) !important;
+            }
+        }
+        @media screen and (max-width: 319px) {
+            .worldcup__background{
+                width: 360px;
+                height: 248px;
+                margin-bottom: 250px;
+                background-image: url("img/worldcup/girls.png");
+            }
+            .logo_brazil{
+                height: 47.5px;
+                width: 46px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+            .logo_worldcup{
+                height: 47.5px;
+                width: 41px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 15%;
+                top: 2%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 8px;
+            }
+            #spin-left__number {
+                font-size: 15px;
+            }
+            #bonusCoins {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: row;
+                gap: 100px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .footer {
+                display: none;
+            }
+            .logo {
+                width: 101px !important;
+                background-size: 100% 100%;
+            }
+            #app {
+                width: 380px !important;
+                margin-left: -29px;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 185px;
+            }
+            .roulette-pie__header-top {
+                font-size: 25px;
+                letter-spacing: 1px;
+                margin-bottom: -20px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 25px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 70px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 218px;
+                height: 208px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 115px;
+                height: 140px;
+                width: 105px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_75.webp);
+                display: flex;
+                height: 275px;
+                width: 275px;
+                position: relative;
+            }
+            .roulette-pie {
+                width: 215px;
+                height: 215px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 85px;
+                left: 64px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .roulette__btn {
+                height: 75px;
+                width: 75px;
+            }
+            .roulette__btn__text {
+                font-size: 18px;
+            }
+        }
+        @media screen and (max-height: 319px) {
+            .worldcup__background{
+                width: 750px;
+                height: 581.25px;
+                margin-bottom: -110px;
+                background-image: url("img/worldcup/girls.png");
+                margin-left: 15px;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 1%;
+                top: 2%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 8px;
+            }
+            #spin-left__number {
+                font-size: 15px;
+            }
+            #bonusCoins {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: row;
+                width: 98vw;
+                justify-content: space-between;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .footer {
+                display: none;
+            }
+            .logo {
+                display: none;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 190px;
+            }
+            .roulette-pie__header-top {
+                font-size: 26px;
+                letter-spacing: 1px;
+                margin-bottom: -10px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 26px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 70px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 218px;
+                height: 208px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 120px;
+                height: 140px;
+                width: 105px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_75.webp);
+                display: flex;
+                height: 275px;
+                width: 275px;
+                position: relative;
+            }
+            .roulette-pie {
+                width: 215px;
+                height: 215px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 85px;
+                left: 64px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .roulette__btn {
+                height: 75px;
+                width: 75px;
+            }
+            .roulette__btn__text {
+                font-size: 18px;
+            }
+        }
+        @media screen and (width: 653px) and (height: 280px) {
+            .worldcup__background{
+                width: 750px;
+                height: 581.25px;
+                margin-bottom: -110px;
+                background-image: url("img/worldcup/girls.png");
+                margin-left: 15px;
+            }
+            .logo_brazil{
+                display: none;
+            }
+            .logo_worldcup{
+                display: none;
+            }
+            .logos{
+                gap: 0;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 1%;
+                top: 2%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 8px;
+            }
+            #spin-left__number {
+                font-size: 15px;
+            }
+            #bonusCoins {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: row;
+                width: 98vw;
+                justify-content: space-between;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .footer {
+                display: none;
+            }
+            .logo {
+                display: none;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 190px;
+            }
+            .roulette-pie__header-top {
+                font-size: 26px;
+                letter-spacing: 1px;
+                margin-bottom: -10px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 26px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 70px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 218px;
+                height: 208px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 120px;
+                height: 140px;
+                width: 105px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_75.webp);
+                display: flex;
+                height: 275px;
+                width: 275px;
+                position: relative;
+            }
+            .roulette-pie {
+                width: 215px;
+                height: 215px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 85px;
+                left: 64px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .roulette__btn {
+                height: 75px;
+                width: 75px;
+            }
+            .roulette__btn__text {
+                font-size: 18px;
+            }
+        }
+        @media screen and (width: 280px) and (height: 653px) {
+            .worldcup__background{
+                width: 360px;
+                height: 248px;
+                margin-bottom: 250px;
+                background-image: url("img/worldcup/girls.png");
+            }
+            .logo_brazil{
+                height: 47.5px;
+                width: 46px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+            .logo_worldcup{
+                height: 47.5px;
+                width: 41px;
+                margin-top: 51px;
+                margin-bottom: 30px;
+            }
+            .logos{
+                gap: 0;
+            }
+            .logo-and-roulette {
+                margin-top: 0%;
+            }
+
+            .roulette__container {
+                height: 65%;
+            }
+            .bonus {
+                width: fit-content;
+                position: absolute;
+                left: 15%;
+                top: 1%;
+                min-width: 180px;
+                z-index: 11 !important;
+            }
+            .spin-left {
+                margin-bottom: 0.5em;
+                font-size: 8px;
+            }
+            #spin-left__number {
+                font-size: 15px;
+            }
+            #bonusCoins {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: row;
+                gap: 100px;
+                position: relative;
+                z-index: 11 !important;
+            }
+            .footer {
+                display: block !important;
+                height: 13.28vw;
+                width: 56%;
+                background-image: url(img/pay-mob.webp) !important;
+                background-size: 100% 100%;
+                margin-bottom: 6vh;
+            }
+            .logo {
+                width: 120px !important;
+                background-size: 100% 100%;
+            }
+            #app {
+                width: 380px !important;
+                margin-left: -49px;
+            }
+            .roulette-pie__header-top__container {
+                top: -85px;
+            }
+            .roulette-pie__headers {
+                top: 190px;
+            }
+            .roulette-pie__header-top {
+                font-size: 26px;
+                letter-spacing: 1px;
+                margin-bottom: -10px;
+            }
+            .roulette-pie__header-bottom {
+                font-size: 26px;
+                letter-spacing: 2px;
+            }
+            .roulette-pie__sector_prize__text__container {
+                margin-bottom: 60px;
+            }
+            .roulette-pie__sector_no-prize__text__container {
+                margin-bottom: 70px;
+            }
+            .roulette-pie__sector_prize__text {
+                text-shadow: 0.2px 0 0.2px #000, 0 0.2px 0.2px #000, -0.2px 0 0.2px #000, 0 -0.2px 0.2px #000;
+            }
+            .roulette-pie__mask {
+                margin-top: 12px;
+                width: 218px;
+                height: 208px;
+            }
+            .roulette-pie__win-selectors__container {
+                margin-bottom: 115px;
+                height: 140px;
+                width: 105px;
+            }
+            .roulette-pie__win-selector__blink {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette-pie__win-selector {
+                height: 140px;
+                width: 105px;
+                top: -12px;
+            }
+            .roulette__holder {
+                background-image: url(img/roulette_holder_75.webp);
+                display: flex;
+                height: 275px;
+                width: 275px;
+                position: relative;
+            }
+            .roulette-pie {
+                width: 215px;
+                height: 215px;
+            }
+            .roulette-pie .roulette-pie__sector {
+                width: 85px;
+                left: 64px;
+            }
+            .roulette-pie .roulette-pie__first-piece {
+                left: 50%;
+            }
+            .roulette-pie__sector_no-prize {
+                background: #72dac4;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(18, 157, 162, 1) 50%, rgba(0, 51, 112, 1) 96%, rgba(33, 180, 224, 1) 100%);
+            }
+            .roulette-pie__sector_prize {
+                background: #d1e799;
+                background: radial-gradient(circle farthest-side at 43px 100px, rgba(0, 194, 144, 1) 50%, rgba(0, 112, 5, 1) 96%, rgba(72, 205, 29, 1) 100%);
+            }
+            .roulette-pie__transparent-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .roulette__btn {
+                height: 75px;
+                width: 75px;
+            }
+            .roulette__btn__text {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body onload="showDialog();textAdaptation();imgAdaptation();">
+<div id="app">
+    <div class="bonus" style="z-index: 10 !important;">
+        <div class="spin-left">Você Ganha:<span id="spin-left__number"></span></div>
+        <div id="bonusCoins">
+            <div class="dialog__content__coins__coin-holder">
+                <div class="centred dialog__content__coins__red-coin">
+                    <div class="centred">
+                        <p>R$</p>
+                        <p>700</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog__content__coins__coin-holder">
+                <div class="centred dialog__content__coins__blue-coin">
+                    <div class="centred">
+                        <p>120</p>
+                        <p>FS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logo-and-roulette">
+        <div class="logos">
+            <div class="logo_brazil"></div>
+            <a href="#">
+                <img src="./img/logo.webp" class="logo" alt="LOGO"/>
+            </a>
+            <div class="logo_worldcup"></div>
+        </div>
+        <div class="roulette__container">
+            <div class="worldcup__background"></div>
+            <div class="roulette">
+                <div class="centred" style="z-index: 1000;">
+                    <img src="./img/wheel-mask.webp" class="roulette-pie__mask"/>
+                </div>
+                <div class="centred" style="z-index: 99999;">
+                    <a class="roulette__btn__borders">
+                        <button class="roulette__btn blink-button" onclick="startSpin()" id="startButton"><span class="roulette__btn__text">GIRAR!</span></button>
+                    </a>
+                </div>
+                <div class="centred roulette-pie__win-selectors__container" style="z-index: 99996">
+                    <img src="./img/selector.webp" class="roulette-pie__win-selector" /> <img src="./img/selector__blink.webp" class="roulette-pie__win-selector__blink blink-selector" id="blinkSelector" />
+                </div>
+                <div class="centred roulette-pie__headers" style="z-index: 100000;">
+                    <div class="centred roulette-pie__header-top__container" style="z-index: 100001;"><h1 class="roulette-pie__header-top">GIRE E</h1></div>
+                    <div class="roulette-pie__header-bottom__shadow"><h1 class="roulette-pie__header-bottom">RECEBA BÔNUS</h1></div>
+                </div>
+                <div class="roulette__holder">
+                    <div class="centred">
+                        <div class="centred roulette-pie__transparent-circle"></div>
+                        <div class="roulette-pie roulette-pie_cycled" id="roulette">
+                            <div class="roulette-pie__sector roulette-pie__first-piece roulette-pie__sector_prize">
+                                <div class="roulette-pie__sector_prize__text__container">
+                                    <h2 class="roulette-pie__sector_prize__text">R$ 700</h2>
+                                    <h2 class="roulette-pie__sector_prize__text">+ 120FS<sup></sup></h2>
+                                </div>
+                            </div>
+                            <div class="roulette-pie__sector roulette-pie__second-piece roulette-pie__sector_no-prize">
+                                <div class="roulette-pie__sector_no-prize__text__container">
+                                    <h2 class="roulette-pie__sector_no-prize__text">TENTE</h2>
+                                    <h2 class="roulette-pie__sector_no-prize__text">NOVAMENTE</h2>
+                                </div>
+                            </div>
+                            <div class="roulette-pie__sector roulette-pie__sector_prize roulette-pie__third-piece">
+                                <div class="roulette-pie__sector_prize__text__container"><h2 class="roulette-pie__sector_prize__text">R$ 100</h2></div>
+                            </div>
+                            <div class="roulette-pie__sector roulette-pie__fourth-piece roulette-pie__sector_no-prize">
+                                <div class="roulette-pie__sector_no-prize__text__container">
+                                    <h2 class="roulette-pie__sector_no-prize__text">SEM</h2>
+                                    <h2 class="roulette-pie__sector_no-prize__text">GANHOS</h2>
+                                </div>
+                            </div>
+                            <div class="roulette-pie__sector roulette-pie__fifth-piece roulette-pie__sector_prize">
+                                <div class="roulette-pie__sector_prize__text__container">
+                                    <h2 class="roulette-pie__sector_prize__text">20FS</h2>
+                                </div>
+                            </div>
+                            <div class="roulette-pie__sector roulette-pie__sixth-piece roulette-pie__sector_no-prize">
+                                <div class="roulette-pie__sector_no-prize__text__container">
+                                    <h2 class="roulette-pie__sector_no-prize__text">TENTE</h2>
+                                    <h2 class="roulette-pie__sector_no-prize__text">NOVAMENTE</h2>
+                                </div>
+                            </div>
+                            <div class="roulette-pie__sector roulette-pie__seventh-piece roulette-pie__sector_prize">
+                                <div class="roulette-pie__sector_prize__text__container"><h2 class="roulette-pie__sector_prize__text">120FS</h2></div>
+                            </div>
+                            <div class="roulette-pie__sector roulette-pie__eighth-piece roulette-pie__sector_no-prize">
+                                <div class="roulette-pie__sector_no-prize__text__container">
+                                    <h2 class="roulette-pie__sector_no-prize__text">SEM</h2>
+                                    <h2 class="roulette-pie__sector_no-prize__text">GANHOS</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer"></footer>
+            <div class="dialog" id="dialog">
+                <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.8.0/dist/js-confetti.browser.js"></script>
+                <div class="dialog__content">
+                    <div class="main-dialog-header">Parabéns!</div>
+                    <div class="second-dialog-header">Você Ganhou:</div>
+                    <div class="prize-dialog-header">R$ 700</div>
+                    <div class="second-prize-dialog-header">120FS</div>
+                    <div class="dialog__content__coins">
+                        <div class="dialog__content__coins__coin-holder">
+                            <div class="centred dialog__content__coins__red-coin">
+                                <div class="centred">
+                                    <p>R$</p>
+                                    <p>700</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog__content__coins__coin-holder">
+                            <div class="centred dialog__content__coins__blue-coin">
+                                <div class="centred">
+                                    <p>120</p>
+                                    <p>FS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://betanobr.com/?utm_source=nt&utm_medium=nt_nt&utm_campaign=nt_nt&utm_content=nt_nt&aid=5379&sid=19931&c=pagebetano3&sck=nt%7Cnt_nt%7Cnt_nt%7Cnt_nt">
+                        <button class="dialog__content__button"><p>Pegar Bônus!</p></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function get_name_browser(){
+            var ua = navigator.userAgent;
+            if (ua.search(/Safari/) > 0) return 'Safari';
+            return false;
+        }
+        if (get_name_browser() == "Safari") {
+            document.write('<link rel="stylesheet" href="./css/safari.css">');
+        }
+
+        function textAdaptation () {
+            const roulettePie = document.querySelector('.roulette-pie').offsetWidth
+            let bigText = document.querySelectorAll(".roulette-pie__sector_prize__text");
+            let smallText = document.querySelectorAll(".roulette-pie__sector_no-prize__text");
+            bigText.forEach(item => {
+                if (item.innerText.length <= 8){
+                    item.style.fontSize = `${31/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 8 && item.innerText.length <= 9){
+                    item.style.fontSize = `${28/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 9 && item.innerText.length <= 10){
+                    item.style.fontSize = `${25/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 10 && item.innerText.length <= 13){
+                    item.style.fontSize = `${15/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 13 && item.innerText.length <= 16){
+                    item.style.fontSize = `${14/(455/roulettePie)}px`
+                    item.style.letterSpacing = `${1/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 16 && item.innerText.length <= 20){
+                    item.style.fontSize = `${10/(455/roulettePie)}px`
+                    item.style.letterSpacing = `${1/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 20){
+                    item.style.fontSize = `${10/(455/roulettePie)}px`
+                    item.style.letterSpacing = `${1/(455/roulettePie)}px`
+                }
+            })
+            smallText.forEach(item => {
+                if (item.innerText.length <= 8){
+                    item.style.fontSize = `${25/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 8 && item.innerText.length <= 10){
+                    item.style.fontSize = `${20/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 10 && item.innerText.length <= 12){
+                    item.style.fontSize = `${15/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 12 && item.innerText.length <= 13){
+                    item.style.fontSize = `${10/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 13 && item.innerText.length <= 16){
+                    item.style.fontSize = `${10/(455/roulettePie)}px`
+                    item.style.letterSpacing = `${1/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 16 && item.innerText.length <= 20){
+                    item.style.fontSize = `${5/(455/roulettePie)}px`
+                    item.style.letterSpacing = `${1/(455/roulettePie)}px`
+                }
+                if (item.innerText.length > 20){
+                    item.style.fontSize = `${10/(455/roulettePie)}px`
+                    item.style.letterSpacing = `${1/(455/roulettePie)}px`
+                }
+            })
+        }
+        function imgAdaptation () {
+            const img = document.querySelector('.logo')
+            const imgHeight = img.offsetHeight
+            const imgWidth = img.offsetWidth
+
+            const imgPer = imgWidth/imgHeight
+
+            img.style.width = '200px'
+            img.style.height = `${200/imgPer}`
+        }
+
+        window.addEventListener('resize', textAdaptation, false);
+        window.addEventListener('orientationchange', textAdaptation, false);
+
+        let roulette = document.getElementById("roulette");
+        let bonuses = document.getElementById("bonusCoins");
+        let startButton = document.getElementById("startButton");
+        let blinkSelector = document.getElementById("blinkSelector");
+        let spinsLeftElem = document.getElementById("spin-left__number");
+        let dialog = document.getElementById("dialog");
+        let spinsLeft;
+        let spinStart;
+        let dialogVisible;
+        function showDialog() {
+            spinStart = localStorage.getItem("startSpin");
+            dialogVisible = localStorage.getItem("dialogVisible");
+            if (spinStart === null && dialogVisible === null) {
+                spinStart = false;
+                dialogVisible = false;
+            }
+            if (dialogVisible) {
+                dialog.style.display = "flex";
+                bonuses.style.display = "flex";
+                spinsLeft = 0;
+            } else {
+                spinsLeft = 1;
+                bonuses.style.display = "none";
+            }
+            spinsLeftElem.innerHTML = spinsLeft;
+        }
+        function startSpin() {
+            spinStart = true;
+            localStorage.setItem("spinStart", spinStart);
+            if (spinStart === true) {
+                spinsLeft = 0;
+                spinsLeftElem.innerHTML = spinsLeft;
+                startButton.classList.remove("blink-button");
+                blinkSelector.style.display = "none";
+                roulette.classList.remove("roulette-pie_cycled");
+                roulette.classList.add("roulette-pie_spinning");
+                setTimeout(() => {
+                    dialogVisible = true;
+                    localStorage.setItem("dialogVisible", dialogVisible);
+                    dialog.style.display = "flex";
+                    bonuses.style.display = "flex";
+                    // Конфетти по бокам
+                    const jsConfetti = new JSConfetti();
+                    jsConfetti.addConfetti({
+                        emojis: ['💶', '🎁','💰','🎉', '💎'],
+                    })
+                    jsConfetti.addConfetti({
+                        confettiColors: [
+                            '#FFA200',
+                            '#F42E03',
+                            '#FFEC01',
+                            '#ECE202',
+                            '#16982B',
+                            '#2001FF',
+                            '#7CFF00'
+                        ],
+                    })
+                }, 5000);
+            }
+        }
+    </script>
+</div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

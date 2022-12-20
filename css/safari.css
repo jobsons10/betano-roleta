@@ -1,0 +1,59 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    background-color:#ff6501;
+}
+@media screen and (min-width: 577px) and (max-width: 720px) {
+    .worldcup__background{
+        width: 720px;
+        height: 497.52px;
+    }
+}
+@media screen and (min-height: 321px) and (orientation: landscape) and (max-height: 480px){
+    .roulette-pie {
+        overflow-y: scroll;
+    }
+    body {
+        overflow-y: scroll;
+    }
+    #app {
+        overflow-y: scroll;
+    }
+    .roulette {
+        overflow-y: scroll;
+    }
+}
+@media screen and (max-width: 374px) and (min-width: 360px) {
+    .worldcup__background{
+        top: 11.85vh;
+        margin-bottom: 0;
+    }
+    @media screen and (min-height: 600px) and (max-height: 641px){
+        .worldcup__background{
+            top: 4.85vh;
+            margin-bottom: 0;
+        }
+    }
+}
+@media screen and (max-width: 577px) and (min-width: 377px) {
+    .worldcup__background{
+        top: 11.85vh;
+        margin-bottom: 0;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .worldcup__background{
+        top: 20px;
+    }
+}
+@media screen and (min-width: 375px) and (max-width: 376px) and (max-height: 677px){
+    .worldcup__background{
+        top: 4.85vh !important;
+        margin-bottom: 0;
+    }
+}
