@@ -332,7 +332,7 @@
 }
 @media screen and (max-width:576px) and (min-width:360px){
     .dialog__content{
-        height:427px;
+        height:447px;
         width:340px;
         padding-top:50px
     }
