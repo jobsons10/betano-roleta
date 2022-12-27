@@ -610,6 +610,6 @@
 }
 
 #people p{
-    padding-block: 3px;
+    padding-block: 8px 3px;
     font-family: 'Montserrat';
 }
