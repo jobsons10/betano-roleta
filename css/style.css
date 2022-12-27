@@ -620,6 +620,8 @@
     text-align: center;
     z-index: 1;
     height: 100px;
-    padding-bottom: 100px;
     font-family: 'Montserrat';
+}
+#people{
+    padding-bottom: 100px;
 }
