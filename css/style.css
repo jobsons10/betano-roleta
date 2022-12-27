@@ -608,3 +608,17 @@
         font-size:15px
     }
 }
+
+#people p{
+    background-color: #fff;
+    color: #000;
+    font-size: 28px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 35px;
+    font-family: 'Montserrat';
+}
