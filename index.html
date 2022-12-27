@@ -2449,7 +2449,7 @@
     </style>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body onload="showDialog();textAdaptation();imgAdaptation();">
+<body onload="showDialog();textAdaptation();imgAdaptation()">
 <div id="app">
     <div style="display: flex; justify-content: center;">
         <img class="logo" src="./img/logo.webp" alt="logo BETANO">
@@ -2469,7 +2469,7 @@
                 </div>
                 <div class="centred" style="z-index: 99999;">
                     <a class="roulette__btn__borders">
-                        <button class="roulette__btn blink-button" onclick="startSpin()" id="startButton"><span class="roulette__btn__text">GIRAR!</span></button>
+                        <button class="roulette__btn blink-button" onclick="startSpin();Cont()" id="startButton"><span class="roulette__btn__text">GIRAR!</span></button>
                     </a>
                 </div>
                 <div class="centred roulette-pie__win-selectors__container" style="z-index: 99996">
@@ -2530,7 +2530,7 @@
             <footer class="footer"></footer>
             <div class="dialog" id="dialog">
                 <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.8.0/dist/js-confetti.browser.js"></script>
-                <div class="dialog__content">
+                <div class="dialog__content" id="conteiner">
                     <div style="font-size: 45px; color: #ffef47;" class="main-dialog-header">Parabéns!</div>
                     <div class="second-dialog-header" style="margin-bottom: 15px">Você Ganhou:</div>
                     <div style="transform: scale(1.5); margin-block: 20px;" class="dialog__content__coins">
@@ -2547,7 +2547,7 @@
                         <button style="width: 80%; padding: 15px 20px; min-height: 60px;" class="dialog__content__button"><p style="font-size: 16px; font-weight: 700;">RESGATAR MEU BÔNUS AGORA!</p></button>
                     </a>
 
-                    <p id="premiacao" style="text-align: center; line-height: 1.4">RESTAM APENAS <span style="color: #198639; background-color: #fff; padding: 2px 6px; font-size: 19px; border-radius: 3px; font-weight: 600;">185</span> DE 200 BÔNUS DISPONÍVEIS </p>
+                    <p id="premiacao" style="text-align: center; line-height: 1.4">RESTAM APENAS <span id="valueOf" style="color: #198639; background-color: #fff; padding: 2px 6px; font-size: 19px; border-radius: 3px; font-weight: 600;">200</span> DE 200 BÔNUS DISPONÍVEIS </p>
                 </div>
             </div>
         </div>
@@ -2731,7 +2731,17 @@
 	else {
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
+
 	// ]]>
 </script>
+<script>
+    // Script do contador negativo>>>>
+        const Cont = function(){
+            setInterval( function() {
+        const cont = document.querySelector('#valueOf');
+        const value = parseInt(cont.innerHTML);
+        cont.innerHTML = value - 1;
+        },1500);}
+    </script>
 </body>
 </html>
