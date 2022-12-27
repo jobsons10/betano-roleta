@@ -2449,7 +2449,7 @@
     </style>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body onload="showDialog();textAdaptation();imgAdaptation()">
+<body onload="showDialog();textAdaptation();imgAdaptation();divOpen()">
 <div id="app">
     <div style="display: flex; justify-content: center;">
         <img class="logo" src="./img/logo.webp" alt="logo BETANO">
@@ -2736,6 +2736,14 @@
 </script>
 <script>
     // Script do contador negativo>>>>
+        function divOpen(){
+            const div = document.querySelector('#conteiner');
+            if (div.clientWidth > 0){
+                Cont();
+            }
+            
+        }
+        
         const Cont = function(){
             setInterval( function() {
         const cont = document.querySelector('#valueOf');
