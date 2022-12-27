@@ -613,12 +613,12 @@
     background-color: #fff;
     color: #000;
     font-size: 28px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
+    width: 90vw;
+    border-radius: 5px;
     text-align: center;
     z-index: 1;
     height: 70px;
+    padding-block: 3px;
     font-family: 'Montserrat';
+    margin: 0 auto;
 }
