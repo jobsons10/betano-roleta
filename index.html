@@ -10,7 +10,6 @@
     <meta name="apple-mobile-web-app-capacity" content="yes">
    <title>Wheel of Fortune | BETANO</title>
     <style>
-
         @keyframes slidein {
             from{
                 height: 0;
@@ -2455,10 +2454,31 @@
                 font-size: 18px;
             }
         }
+        .people{
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 55px;
+        background-color: #fff;
+        color: #000;
+        font-size: 21px;
+        width: 100vw;
+        border-radius: 5px;
+        text-align: center;
+        z-index: 1;
+        justify-content: space-between;
+        padding-inline: 8px;
+        z-index: 999999999999999;
+        animation: slidein .5s;
+        }
+        .display-off{
+            display: none;
+        }
     </style>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body onload="showDialog();textAdaptation();imgAdaptation();divOpen()" style="padding-bottom: 75px;">
+<body onload="showDialog();textAdaptation();imgAdaptation();divOpen();Frases()" style="padding-bottom: 75px;">
 <div id="app">
     <div style="display: flex; justify-content: center;">
         <img class="logo" src="./img/logo.webp" alt="logo BETANO">
@@ -2560,25 +2580,9 @@
                 </div>
             </div>
         </div>
-        <div id="people" style=" 
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        height: 55px;
-        background-color: #fff;
-        color: #000;
-        font-size: 21px;
-        width: 100vw;
-        border-radius: 5px;
-        text-align: center;
-        z-index: 1;
-        justify-content: space-between;
-        padding-inline: 8px;
-        animation: slidein .5s;
-        z-index: 999999999999999;">
+        <div id="people" class=" people">
             <img src="./img/icons8-dinheiro-96.png" alt="">
-            <p>Alguém acabou de ganhar R$300</p>
+            <p id="people-p">Alguém acabou de ganhar R$300</p>
         </div>
         </div>
     <script>
@@ -2780,7 +2784,24 @@
         if (value > 0){
         cont.innerHTML = value - 1;
         }
-        },150);}
+        },1500);}
+    </script>
+        
+    <script>
+        <!-- scrpt das frases aleatórias -->
+        const frases = ['Alguém acabou de ganhar R$300','Alguém acabou de ganhar R$15','Alguém acabou de ganhar R$100'];
+        const Frases = function(){
+        setInterval( function() {
+        const contDiv = document.querySelector('#people')
+        const cont = document.querySelector('#people-p');
+        const rand = Math.floor(Math.random() * frases.length);
+        const value = frases[rand];
+        cont.innerHTML = value;
+        contDiv.classList.toggle('display-off');
+        setTimeout(function(){
+            contDiv.classList.toggle('display-off');
+        }, .1500)
+        },1500);}
     </script>
 </body>
 </html>
