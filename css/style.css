@@ -610,15 +610,6 @@
 }
 
 #people p{
-    background-color: #fff;
-    color: #000;
-    font-size: 28px;
-    width: 90vw;
-    border-radius: 5px;
-    text-align: center;
-    z-index: 1;
-    height: 70px;
     padding-block: 3px;
     font-family: 'Montserrat';
-    margin: 0 auto;
 }
