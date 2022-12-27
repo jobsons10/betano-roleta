@@ -2745,11 +2745,13 @@
         }
         
         const Cont = function(){
-            setInterval( function() {
+        setInterval( function() {
         const cont = document.querySelector('#valueOf');
         const value = parseInt(cont.innerHTML);
+        if (value > 0){
         cont.innerHTML = value - 1;
-        },1500);}
+        }
+        },150);}
     </script>
 </body>
 </html>
